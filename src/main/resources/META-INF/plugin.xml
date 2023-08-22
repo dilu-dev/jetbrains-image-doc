@@ -1,0 +1,32 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.dilu.plugin.image-doc</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>ImageDoc</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="cnzhujie@qq.com" url="https://dilu.dev">DiLu.Dev</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    <p>You can paste image to your code comments, and you can preview it</p>
+    <p>支持直接在评论中粘贴图片，并支持预览</p>
+]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <customPasteProvider implementation="com.dilu.plugin.image.doc.ImageDocPasteProvider"/>
+        <editorFactoryListener implementation="com.dilu.plugin.image.doc.ImageDocInitialize"/>
+        <documentationProvider implementation="com.dilu.plugin.image.doc.ImageDocDocumentationProvider"/>
+    </extensions>
+</idea-plugin>
